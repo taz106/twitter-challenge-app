@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table table-condensed" [ngClass]="config.skin">
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns; let i = index"
+          [id]="i"
+          (drop)="onDrop($event)" 
+          (dragover)="allowDrop($event)"
+          draggable="true"
+          (dragstart)="onDrag($event)">{{ column }} </th>
+      </tr>
+    </thead>
+    <tbody *ngIf="displayTable">
+      <tr *ngFor="let twitt of renderedTwitts">
+        <td *ngFor="let column of columns; let i = index">
+          <app-twitt [twitt]="twitt[column]"></app-twitt>
+        </td>
+        <!-- <td>
+          <app-twitt [twitt]="twitt.newsycombinator"></app-twitt>
+        </td>
+        <td>
+          <app-twitt [twitt]="twitt.ycombinator"></app-twitt>
+        </td> -->
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!displayTable">Loading...</p>
+</div>

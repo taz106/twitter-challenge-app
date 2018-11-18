@@ -1,0 +1,17 @@
+<ng-container *ngIf="twitt !== null; else emptyContainer">
+  <p>{{ twitt.full_text }}</p>
+  
+  <p>Date: {{ twitt.created_at | date: 'medium' }} </p>
+  
+  <p><strong>{{ twitt.retweet_count }}</strong>  Retweets</p>
+  
+  <p><strong>{{ twitt.entities.user_mentions.length }}</strong> User mentioned</p>
+  
+  <ul *ngIf="twitt.entities.user_mentions.length > 0">
+    <li *ngFor="let user_mention of twitt.entities.user_mentions">{{ user_mention.screen_name }} </li>
+  </ul>
+</ng-container>
+
+<ng-template #emptyContainer>
+  <p>No Item</p>
+</ng-template>

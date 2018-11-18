@@ -1,0 +1,33 @@
+<ng-container>
+  <form class="form-inline" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="items">Select items:</label>
+      <select class="form-control" id="items" formControlName="items">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="skin">Select skin:</label>
+      <select class="form-control" id="skin" formControlName="skin">
+        <option value="">Default</option>
+        <option value="blue-theme">Blue</option>
+        <option value="red-theme">Red</option>
+      </select>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="from_date">Date Range :</label>
+      <input id="date_range" 
+        type="text" 
+        formControlName="date_range" 
+        placeholder="yyyy-mm-dd" 
+        bsDaterangepicker 
+        readonly
+        [maxDate]="maxDate">
+    </div> 
+    
+    <button type="submit" class="btn-success">Apply</button>
+  </form>
+</ng-container>
